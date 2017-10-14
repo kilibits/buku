@@ -1,4 +1,4 @@
-package common
+package Models
 
 //Transaction model
 type Transaction struct {

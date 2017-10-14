@@ -1,4 +1,4 @@
-package common
+package Models
 
 // Block model
 type Block struct {
