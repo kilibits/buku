@@ -9,6 +9,9 @@ import (
 //Chain alias to blockchain type
 type Chain Models.Blockchain
 
+//Block alias to block type
+type Block Models.Block
+
 //NewBlockChain create new blockchain
 func NewBlockChain() *Chain {
 	blockChain := &Chain{
@@ -26,8 +29,10 @@ func CreateBlock(previousBlockHash string) *Models.Block {
 		Index:        0,
 		Timestamp:    time.Now().Unix(),
 		PreviousHash: previousBlockHash,
-		Hash:         "TODO",
+		Transactions: []Models.Transaction{},
 	}
+
+	block.BlockHash()
 	return block
 }
 
@@ -36,5 +41,4 @@ func (bc *Chain) AddBlock() {
 	chainLength := len(bc.Blocks)
 	previousBlock := bc.Blocks[chainLength-1]
 	bc.Blocks = append(bc.Blocks, CreateBlock(previousBlock.Hash))
-
 }
