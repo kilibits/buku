@@ -6,12 +6,12 @@ import (
 	Models "../Models"
 )
 
-//Blocky alias to blockchain type
-type Blocky Models.Blockchain
+//Chain alias to blockchain type
+type Chain Models.Blockchain
 
 //NewBlockChain create new blockchain
-func NewBlockChain() *Blocky {
-	blockChain := &Blocky{
+func NewBlockChain() *Chain {
+	blockChain := &Chain{
 		[]*Models.Block{
 			CreateBlock(string([]byte{})),
 		},
@@ -32,7 +32,7 @@ func CreateBlock(previousBlockHash string) *Models.Block {
 }
 
 //AddBlock append new block to the chain
-func (bc *Blocky) AddBlock() {
+func (bc *Chain) AddBlock() {
 	chainLength := len(bc.Blocks)
 	previousBlock := bc.Blocks[chainLength-1]
 	bc.Blocks = append(bc.Blocks, CreateBlock(previousBlock.Hash))
