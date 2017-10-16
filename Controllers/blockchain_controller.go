@@ -9,9 +9,6 @@ import (
 //Chain alias to blockchain type
 type Chain Models.Blockchain
 
-//Block alias to block type
-type Block Models.Block
-
 //NewBlockChain create new blockchain
 func NewBlockChain() *Chain {
 	blockChain := &Chain{
