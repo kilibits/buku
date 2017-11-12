@@ -1,6 +1,7 @@
 package Controllers
 
 import (
+	"math/big"
 	"time"
 
 	Models "../Models"
@@ -8,6 +9,8 @@ import (
 
 //Chain alias to blockchain type
 type Chain Models.Blockchain
+
+const targetBits = 24
 
 //NewBlockChain create new blockchain
 func NewBlockChain() *Chain {
@@ -38,4 +41,13 @@ func (bc *Chain) AddBlock() {
 	chainLength := len(bc.Blocks)
 	previousBlock := bc.Blocks[chainLength-1]
 	bc.Blocks = append(bc.Blocks, CreateBlock(previousBlock.Hash))
+}
+
+func NewProofOfWork(block *Models.Block) *Models.Proof {
+	target := big.NewInt(1)
+	target.Lsh(target, uint(256-targetBits))
+
+	proof := &Models.Proof{block, target}
+
+	return proof
 }
