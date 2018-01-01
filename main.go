@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	Controllers "./Controllers"
+	. "./buku"
 )
 
 func main() {
-	blockChain := Controllers.NewBlockChain()
+	blockChain := NewBlockChain()
 	blockChain.AddBlock()
 	blockChain.AddBlock()
 	blockChain.AddBlock()

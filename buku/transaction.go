@@ -1,4 +1,4 @@
-package Models
+package buku
 
 //Transaction model
 type Transaction struct {

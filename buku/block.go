@@ -1,8 +1,9 @@
-package Models
+package buku
 
 import (
 	"crypto/sha256"
 	"strings"
+	"time"
 )
 
 // Block model
@@ -19,4 +20,17 @@ func (b *Block) BlockHash() {
 	headers := strings.Join([]string{b.PreviousHash, string(b.Timestamp)}, "")
 	hash := sha256.Sum256([]byte(headers))
 	b.Hash = string(hash[:])
+}
+
+//CreateBlock - create a new block
+func CreateBlock(previousBlockHash string) *Block {
+	block := &Block{
+		Index:        0,
+		Timestamp:    time.Now().Unix(),
+		PreviousHash: previousBlockHash,
+		Transactions: []Transaction{},
+	}
+
+	block.BlockHash()
+	return block
 }
