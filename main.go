@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	. "./buku"
+	buku "./buku"
 )
 
 func main() {
-	blockChain := NewBlockChain()
+	blockChain := buku.NewBlockChain()
 	blockChain.AddBlock()
 	blockChain.AddBlock()
 	blockChain.AddBlock()
