@@ -23,9 +23,9 @@ func (b *Block) BlockHash() {
 }
 
 //CreateBlock - create a new block
-func CreateBlock(previousBlockHash string) *Block {
+func CreateBlock(previousBlockHash string, index int64) *Block {
 	block := &Block{
-		Index:        0,
+		Index:        index,
 		Timestamp:    time.Now().Unix(),
 		PreviousHash: previousBlockHash,
 		Transactions: []Transaction{},

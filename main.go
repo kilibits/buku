@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	buku "./buku"
+	buku "github.com/kilibits/buku/buku"
 )
 
 func main() {
